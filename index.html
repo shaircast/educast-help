@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-thick-header
 ---
 
 <div class="home">
@@ -8,6 +8,9 @@ layout: default
 
   <ul class="post-list">
     {% for post in site.posts %}
+    {% if post.title == "landing-page" %}
+    {{ post.content }}
+    {% endif %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 

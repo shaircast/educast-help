@@ -6,7 +6,7 @@
 
 
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: "Noto Sans Korean", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -43,10 +43,17 @@ $on-laptop:        800px;
     }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+        "lib/normalize",
+        "lib/noto-sans-korean",
+        "lib/font-awesome/font-awesome",
         "base",
         "layout",
         "syntax-highlighting"
