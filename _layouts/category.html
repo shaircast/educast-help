@@ -23,7 +23,7 @@ layout: default
   </header>
   <div class="post-summary-content">
     {% assign ps_header_parts=post.content | split: "</p>" %}
-    <ul>
+    <ul class="list-style">
     {% for ps_header_part in ps_header_parts %}
       {% assign possible_header = ps_header_part | split: "<p>" | first | remove: "<h4>" | remove: "</h4>" | strip %}
     {% assign possible_header_size = possible_header | size %}
@@ -37,14 +37,5 @@ layout: default
 </article>
 {% endfor %}
 <script>
- (function (window, anchors) {
-     var item_urlify = function (item) {
-         var url_part = anchors.urlify(item.text.trim());
-         item.href += '#' + url_part;
-     };
-     var items = window.document.querySelectorAll(".post-summary-content ul li a");
-     for (var i = 0; i < items.length; i++) {
-         item_urlify(items[i]);
-     }
- })(window, anchors);
+ makeHeaderLink(".post-summary-content ul li a");
 </script>

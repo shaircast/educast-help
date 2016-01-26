@@ -1,23 +1,44 @@
 ---
 layout: default-thick-header
 ---
-
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <section class="home-faq">
+    <div class="wrapper">
+      <h2>자주 묻는 질문</h2>
+      <div class="home-faq-wrapper">
+        <div class="home-faq-item">
+          <ul class="list-style">
+            <li><a href="">학생용</a></li>
+          </ul>
+        </div>
+        <div class="home-faq-item">
+          <ul class="list-style">
+            <li><a href="">학생용</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-menu">
+    <div class="home-menu-wrapper">
+      <a class="home-menu-item" href="{{ site.baseurl }}/student/">
+        <figure>
+          <img src="{{ site.baseurl }}/img/student-icon.png">
+        </figure>
+        <h3>수강생</h3>
+        <p>강의를 수강하는데 궁금한 점이 있으신가요?</p>
+      </a>
+      <a class="home-menu-item" href="{{ site.baseurl }}/teacher/">
+        <figure>
+          <img src="{{ site.baseurl }}/img/teacher-icon.png">
+        </figure>
+        <h3>선생님</h3>
+        <p>강좌를 개설하는데 궁금한 점이 있으신가요?</p>
+      </a>
+    </div>
+  </section>
 </div>
+<script>
+ makeHeaderLink(".home-faq-item li a");
+</script>

@@ -26,7 +26,7 @@ $grey-color-dark:  darken($grey-color, 25%);
 $content-width:    800px;
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        1024px;
 
 
 
@@ -51,10 +51,11 @@ $on-laptop:        800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "lib/normalize",
-        "lib/noto-sans-korean",
-        "lib/font-awesome/font-awesome",
-        "base",
-        "layout",
-        "syntax-highlighting"
+"lib/normalize",
+"lib/noto-sans-korean",
+"lib/font-awesome/font-awesome",
+"base",
+"layout",
+"syntax-highlighting",
+"page/index"
 ;
