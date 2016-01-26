@@ -313,3 +313,20 @@ $header-bar-width-desktop: 660px;
         }
     }
 }
+
+
+.breadcrumb {
+  ul {
+    margin: 0 0 10px 0;
+    li {
+      list-style: none;
+      display: inline-block;
+    }
+    li + li {
+      &:before {
+        content: '>';
+      }
+    }
+  }
+
+}
