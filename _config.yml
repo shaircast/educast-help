@@ -35,5 +35,5 @@ defaults:
       permalink: /:categories/:slug/
 
 category_name_map:
-  student: "학생"
+  student: "수강생"
   teacher: "선생님"

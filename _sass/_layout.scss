@@ -2,8 +2,6 @@
  * Site header
  */
 
-$header-bar-width-desktop: 660px;
-
 .site-header {
   background-color: #009BBE;
   min-height: 90px;
@@ -14,7 +12,18 @@ $header-bar-width-desktop: 660px;
   &.site-header-thick {
     min-height: 200px;
     .site-search-box {
+      width: $site-search-box-max-width-on-desktop;
+      margin-left: - $site-search-box-max-width-on-desktop / 2;
+      left: 50%;
       bottom: 40px;
+      @include media-query(
+        $site-search-box-max-width-on-desktop + $spacing-unit
+      ) {
+        width: auto;
+        margin-left: 0;
+        left: $spacing-unit / 2;
+        right: $spacing-unit / 2;
+      }
     }
   }
 
@@ -31,11 +40,26 @@ $header-bar-width-desktop: 660px;
 
   .site-search-box {
     position: absolute;
-    width: 660px;
+    width: $site-search-box-max-width-on-desktop;
     left: 50%;
-    margin-left: -330px;
+    margin-left: -$site-search-box-max-width-on-desktop / 2;
     height: 50px;
     bottom: 20px;
+    @include media-query(
+      $site-title-min-width-on-desktop * 2 + $site-search-box-max-width-on-desktop
+    ) {
+      left: $site-title-min-width-on-desktop;
+      margin-left: 0;
+    }
+    @include media-query(
+      $site-title-min-width-on-desktop + $site-search-box-max-width-on-desktop +
+      $site-service-link-min-width-on-desktop
+    ) {
+      width: auto;
+      left: $site-title-min-width-on-desktop;
+      right: $site-service-link-min-width-on-desktop;
+      margin-left: 0;
+    }
     .indicator {
       color: #969696;
       position: absolute;
@@ -295,7 +319,8 @@ $header-bar-width-desktop: 660px;
 }
 
 .post-meta {
-    font-size: $small-font-size;
+  text-align: right;
+  font-size: $small-font-size;
     color: $grey-color;
 }
 
@@ -314,13 +339,9 @@ $header-bar-width-desktop: 660px;
 }
 
 .post-title {
-    font-size: 42px;
+  text-align: center;
     letter-spacing: -1px;
     line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
 }
 
 .post-content {
@@ -353,8 +374,13 @@ $header-bar-width-desktop: 660px;
 
 
 .breadcrumb {
+  max-width: $breadcrumb-max-width;
+  font-size: 14px;
+  width: 100%;
+  padding: 0 $spacing-unit / 2;
+  margin: 0 auto $spacing-unit / 1.5  auto;
   ul {
-    margin: 0 0 10px 0;
+    margin: 0 0 $spacing-unit / 2 0;
     li {
       list-style: none;
       display: inline-block;

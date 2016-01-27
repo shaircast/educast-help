@@ -1,0 +1,23 @@
+.category {
+  .post-summary-list {
+    position: relative;
+    .category-menu {
+      position: absolute;
+      width: 100px;
+      right: 0;
+      ul {
+        margin: 0;
+        li {
+          line-height: 1.0;
+          list-style: none;
+          margin-bottom: 5px;
+          padding-left: $spacing-unit / 3 - 2px;
+          border-left: 2px solid transparent;
+          &.active {
+            border-left: 2px solid #039cbf;
+          }
+        }
+      }
+    }
+  }
+}

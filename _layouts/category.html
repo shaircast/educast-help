@@ -4,38 +4,56 @@ layout: default
 {% assign category = page.path | split: "/" | first %}
 {% assign category_pages = site.categories[category] | sort: 'order'%}
 
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="{{ site.baseurl }}/">help</a></li>
-    <li>
-      <a href="{{ site.baseurl }}/{{ category }}/">
-        {{ site.category_name_map[category] }}
-      </a>
-    </li>
-  </ul>
-</nav>
-
-<h2>{{ site.category_name_map[category] }}</h2>
-{% for post in category_pages %}
-<article class="post-summary">
-  <header class="post-summary-header">
-    <h2 class="post-summary-title">{{ post.title }}</h2>
-  </header>
-  <div class="post-summary-content">
-    {% assign ps_header_parts=post.content | split: "</p>" %}
-    <ul class="list-style">
-    {% for ps_header_part in ps_header_parts %}
-      {% assign possible_header = ps_header_part | split: "<p>" | first | remove: "<h4>" | remove: "</h4>" | strip %}
-    {% assign possible_header_size = possible_header | size %}
-    {% if possible_header_size > 0 %}
+<div class="category">
+  <nav class="breadcrumb">
+    <ul>
+      <li><a href="{{ site.baseurl }}/">help</a></li>
       <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ possible_header }}</a>
+        <a href="{{ site.baseurl }}/{{ category }}/">
+          {{ site.category_name_map[category] }}
+        </a>
       </li>
-    {% endif %}
-    {% endfor %}
     </ul>
-</article>
-{% endfor %}
+  </nav>
+
+  <div class="wrapper">
+    <h1 class="post-title">{{ site.category_name_map[category] }}</h1>
+    <div class="post-summary-list">
+      <div class="category-menu">
+        <ul>
+          {% for post in category_pages %}
+          <li class="active"><a href="">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% for post in category_pages %}
+      <article class="post-summary">
+        <header class="post-summary-header">
+          <h2 class="post-summary-title">{{ post.title }}</h2>
+        </header>
+        <div class="post-summary-content">
+          {% assign ps_header_parts=post.content | split: "</p>" %}
+          <ul class="list-style">
+            {% for ps_header_part in ps_header_parts %}
+            {% assign possible_header = ps_header_part | split: "<p>" | first | remove: "<h4>" | remove: "</h4>" | strip %}
+            {% assign possible_header_size = possible_header | size %}
+            {% if possible_header_size > 0 %}
+            <li>
+              <a href="{{ site.baseurl }}{{ post.url }}">{{ possible_header }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <script>
  makeHeaderLink(".post-summary-content ul li a");
+ makeHeaderLink(".category-menu ul li a");
+ anchors.add(".post-summary-title");
 </script>
