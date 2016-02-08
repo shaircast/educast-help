@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.4"
+
+install:
+  - pip install -r ./requirements.txt
+
+script:
+  - invoke deploy
+
+env:
+  global:
+    - GH_REF: "github.com/tntcrowd/educast-help.git"
+    - secure: "2LzaU7as06jKgGG+GZWGs/n39qIsFSponq7qkWGc7zfNzyrcpTQqawIFomKx52NES0i6jsSrO6PPSMKE5loizQQrenUX85LdhoLrZVj6SEtyMH41ArzVpSHES8KktRGGRt849JIXGVvQU2Aws4Fn48lejIeU8ErwUl821OdbJjZNCK+MA/4Vi1kY76CYwZ5A/jYUq+HXhP/QSMZf1aHMHLjPgbhmospjbxJrDcVno0nWrd4lZhQm50jiTg/YwP0iYHBblvqslNSIWBck5DUdfsWVoVzTFeWDk5EQA9OQtTrsI72jvqJxoiPzUGr92mzjEs/sR2N+f7mFJFy0XWFwK6NvCBOLjclOpM/bm22Kak9FJ1dIF27mKUFLRu0yT1eUtYv6kZp/I01sjaVqBFoaI1ipIpM3pmLb9IHOH+fFUOKbIlMLfPXIYXVZelz6PIPvY5xOvoLan5efJ5dSLeCFPyfsIeOilM+P6aJodD8pO6EiGgajzINiyGBzfzkDqE2n0LOX93QF/Tj4RoGbF7J8/dUJJKG14PB8h3f2CJPuUbNar5dmS2GNXEpiJD2HqWqpaUeIMYbTldz+y4T73G49rOubNyMHnxg24Xf3DaMBbV9acNhHGRir4ngR+kdUV86EKkQHGQKMHjjNscHsXyoB2tJ01yW1VkLMlh3jwefyYko="
