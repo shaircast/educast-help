@@ -38,10 +38,15 @@ def fetch(ctx):
 def commit(ctx):
     with chdir("./dist"):
         ctx.run("git add -A")
-        ctx.run('git commit --allow-empty -a --author="%s <%s>" -m "%s"' % (
-            "TNTcrowd", "devmaster@tntcrowd.com",
-            "Update Help Center Message"
-        ))
+        ctx.run(
+            (
+                'git -c user.name="%s" -c user.email="%s" '
+                'commit --allow-empty -a -m "%s"'
+            ) % (
+                "TNTcrowd", "devmaster@tntcrowd.com",
+                "Update Help Center Message"
+            )
+        )
 
 
 @task
@@ -67,7 +72,6 @@ def convert(ctx):
             fragment = ''
 
         norm_path = os.path.normpath(os.path.join(current_path, url_base))
-        print(norm_path)
 
         if not os.path.isfile(norm_path):
             return url
@@ -78,7 +82,8 @@ def convert(ctx):
             else:
                 # Convert
                 date_result = ctx.run(
-                    'git log -1 --format="%%ad" -- %s --date=iso' % post_path
+                    'git log -1 --format="%%ad" -- %s' % post_path,
+                    hide='both'
                 )
                 date = dateutil.parser.parse(date_result.stdout).date()
 
@@ -119,7 +124,8 @@ def convert(ctx):
             title = title.replace('-', ' ')
 
             date_result = ctx.run(
-                'git log -1 --format="%%ad" -- %s --date=iso' % post_path
+                'git log -1 --format="%%ad" -- %s' % post_path,
+                hide='both'
             )
             date = dateutil.parser.parse(date_result.stdout).date()
 
