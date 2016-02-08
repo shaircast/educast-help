@@ -45,7 +45,7 @@ def commit(ctx):
             ) % (
                 "TNTcrowd", "devmaster@tntcrowd.com",
                 "Update Help Center Message"
-            )
+            ), hide='both'
         )
 
 
@@ -53,7 +53,8 @@ def commit(ctx):
 def push(ctx):
     with chdir("./dist"):
         ctx.run(
-            "git push https://%s@%s %s" % (_GH_TOKEN, _GH_REF, "gh-pages")
+            "git push https://%s@%s %s" % (_GH_TOKEN, _GH_REF, "gh-pages"),
+            hide='both'
         )
 
 
@@ -156,12 +157,6 @@ def convert(ctx):
 @task(pre=[clean, fetch, convert])
 def build(ctx):
     pass
-
-
-@task
-def test(ctx):
-    asdf = ctx.run('ls')
-    print(asdf.stdout)
 
 
 @task(pre=[build], post=[commit, push])
