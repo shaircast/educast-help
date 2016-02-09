@@ -83,7 +83,7 @@ def convert(ctx):
             else:
                 # Convert
                 date_result = ctx.run(
-                    'git log -1 --format="%%ad" -- %s' % post_path,
+                    'git log -1 --format="%%ad" -- %s' % norm_path,
                     hide='both'
                 )
                 date = dateutil.parser.parse(date_result.stdout).date()
