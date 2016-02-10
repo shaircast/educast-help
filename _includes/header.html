@@ -1,4 +1,5 @@
 <header class="site-header{% if include.thick_header %} site-header-thick{% endif %}">
+  <input type="checkbox" id="search-open-checker">
   <a class="site-title" href="{{ site.baseurl }}/">
     <img src="{{ site.baseurl }}/img/logo.png"> - help
   </a>
@@ -16,4 +17,30 @@
   <a class="site-service-link" href="https://educast.pro">
     <span class="fa fa-reply"></span> back to educast
   </a>
+  <label class="site-search-open-btn" for="search-open-checker">
+    <span class="fa fa-search"></span>
+  </label>
+  <label class="site-search-close-btn" for="search-open-checker">
+    <span class="fa fa-close"></span>
+  </label>
+  </label>
+  <div class="site-menu">
+    <input type="checkbox" id="menu-open-checker">
+    <ul class="menu">
+      <li><a href="/teacher/">
+        <i class="fa fa-rocket"></i> 강사
+      </a></li>
+      <li><a href="/student/">
+        <i class="fa fa-user"></i> 수강생
+      </a></li>
+      <li><a href="https://educast.pro">
+        <i class="fa fa-reply"></i> 에듀캐스트로 돌아가기
+      </a></li>
+    </ul>
+    <label class="opener" for="menu-open-checker">
+      <i class="fa fa-bars"></i>
+    </label>
+    <label class="background" for="menu-open-checker">
+    </label>
+  </div>
 </header>

@@ -6,7 +6,7 @@
 
 
 // Our variables
-$base-font-family: "Noto Sans Korean", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: "Noto Sans KR", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   14px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -25,12 +25,20 @@ $grey-color-dark:  darken($grey-color, 25%);
 // Width of the content area
 $content-width:    760px;
 
-$on-palm:          600px;
-$on-laptop:        800px;
+$on-palm:          700px;
+$on-laptop:        940px;
 
-$site-title-min-width-on-desktop: 330px;
-$site-service-link-min-width-on-desktop: 190px;
-$site-search-box-max-width-on-desktop: 660px;
+$header-height-on-desktop: 90px;
+$header-thick-height-on-desktop: 200px;
+$title-width-on-desktop: 300px;
+$link-width-on-desktop: 180px;
+$search-maxwidth-on-desktop: 660px;
+
+$header-height-on-laptop: 80px;
+$header-thick-height-on-laptop: 160px;
+$title-width-on-laptop: 230px;
+$link-width-on-laptop: 140px;
+$search-maxwidth-on-laptop: 660px;
 
 $breadcrumb-max-width: 900px;
 
@@ -56,9 +64,9 @@ $breadcrumb-max-width: 900px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+url("http://fonts.googleapis.com/earlyaccess/notosanskr.css"),
+url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"),
 "lib/normalize",
-"lib/noto-sans-korean",
-"lib/font-awesome/font-awesome",
 "base",
 "layout",
 "syntax-highlighting",

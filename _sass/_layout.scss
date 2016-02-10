@@ -2,116 +2,148 @@
  * Site header
  */
 
-.site-header {
-  background-color: #009BBE;
-  min-height: 90px;
+@mixin common-header($header-height, $header-thick-height,
+  $title-width, $link-width, $search-maxwidth) {
 
-  // Positioning context for the mobile navigation icon
-  position: relative;
+    background-color: #009BBE;
+    min-height: $header-height;
+    position: relative;
 
-  &.site-header-thick {
-    min-height: 200px;
-    .site-search-box {
-      width: $site-search-box-max-width-on-desktop;
-      margin-left: - $site-search-box-max-width-on-desktop / 2;
-      left: 50%;
-      bottom: 40px;
-      @include media-query(
-        $site-search-box-max-width-on-desktop + $spacing-unit
-      ) {
-        width: auto;
-        margin-left: 0;
-        left: $spacing-unit / 2;
-        right: $spacing-unit / 2;
-      }
-    }
-  }
-
-  .site-title {
-    font-size: 24px;
-    color: white;
-    position: absolute;
-    left: 15px;
-    top: 20px;
-    &:hover {
-      text-decoration: inherit;
-    }
-  }
-
-  .site-search-box {
-    position: absolute;
-    width: $site-search-box-max-width-on-desktop;
-    left: 50%;
-    margin-left: -$site-search-box-max-width-on-desktop / 2;
-    height: 50px;
-    bottom: 20px;
-    @include media-query(
-      $site-title-min-width-on-desktop * 2 + $site-search-box-max-width-on-desktop
-    ) {
-      left: $site-title-min-width-on-desktop;
-      margin-left: 0;
-    }
-    @include media-query(
-      $site-title-min-width-on-desktop + $site-search-box-max-width-on-desktop +
-      $site-service-link-min-width-on-desktop
-    ) {
-      width: auto;
-      left: $site-title-min-width-on-desktop;
-      right: $site-service-link-min-width-on-desktop;
-      margin-left: 0;
-    }
-    .indicator {
-      color: #969696;
-      position: absolute;
-      left: 0;
-      line-height: 50px;
-      padding-left: 20px;
-      width: 45px;
-      height: 100%;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      background-color: white;
-    }
-
-    .input-wrapper {
-      position: absolute;
-      left: 45px;
-      right: 85px;
-      height: 100%;
-      input {
-        border: none;
-        background: white;
-        outline: none;
-        width: 100%;
-        height: 100%;
-        &:placeholder-shown {
-          color: #969696;
+    &.site-header-thick {
+      min-height: $header-thick-height;
+      .site-search-box {
+        width: $search-maxwidth;
+        margin-left: - $search-maxwidth / 2;
+        left: 50%;
+        bottom: 30px;
+        @include media-query(
+          $search-maxwidth + $spacing-unit
+        ) {
+          width: auto;
+          margin-left: 0;
+          left: $spacing-unit / 2;
+          right: $spacing-unit / 2;
         }
       }
     }
-    .button {
+
+    input#search-open-checker {
+      display: none;
+    }
+    .site-search-open-btn {
+      display: none;
+    }
+    .site-search-close-btn {
+      display: none;
+    }
+
+    .site-title {
       position: absolute;
-      line-height: 50px;
-      text-align: center;
-      width: 85px;
-      height: 100%;
-      right: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      background-color: #007f9b;
+      font-size: 0.6 * $header-height - 30px;
       color: white;
+      position: absolute;
+      width: $title-width;
+      left: $spacing-unit / 2;
+      top: 20px;
+      img {
+        height: $header-height - 45px;
+      }
+      &:hover {
+        text-decoration: inherit;
+      }
     }
-  }
-  .site-service-link {
-    color: white;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: 18px;
-    &:hover {
-      text-decoration: inherit;
+
+    .site-search-box {
+      position: absolute;
+      width: $search-maxwidth;
+      left: 50%;
+      margin-left: -$search-maxwidth / 2;
+      height: 50px;
+      bottom: ($header-height - 50px) / 2;
+      @include media-query(
+        $title-width * 2 + $spacing-unit * 2 + $search-maxwidth
+      ) {
+        left: $title-width + $spacing-unit;
+        margin-left: 0;
+      }
+      @include media-query(
+        $title-width + $link-width + $spacing-unit * 2 + $search-maxwidth
+      ) {
+        width: auto;
+        left: $title-width + $spacing-unit;
+        right: $link-width + $spacing-unit;
+        margin-left: 0;
+      }
+
+      .indicator {
+        color: #969696;
+        position: absolute;
+        left: 0;
+        line-height: 50px;
+        padding-left: 20px;
+        width: 45px;
+        height: 100%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background-color: white;
+      }
+
+      .input-wrapper {
+        position: absolute;
+        left: 45px;
+        right: 85px;
+        height: 100%;
+        input {
+          border: none;
+          background: white;
+          outline: none;
+          width: 100%;
+          height: 100%;
+          &:placeholder-shown {
+            color: #969696;
+          }
+        }
+      }
+
+      .button {
+        position: absolute;
+        line-height: 50px;
+        text-align: center;
+        width: 85px;
+        height: 100%;
+        right: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: #007f9b;
+        color: white;
+      }
     }
+    .site-service-link {
+      color: white;
+      position: absolute;
+      width: $link-width;
+      right: 15px;
+      top: 15px;
+      font-size: $header-height / 5;
+      text-align: right;
+      &:hover {
+        text-decoration: inherit;
+      }
+    }
+    .site-menu {
+      display: none;
+    }
+}
+
+.site-header {
+  @include common-header(90px, 200px, 300px, 160px, 660px);
+
+  @include media-query($on-laptop) {
+    @include common-header($header-height-on-laptop,
+      $header-thick-height-on-laptop, $title-width-on-laptop,
+      $link-width-on-laptop, $search-maxwidth-on-laptop);
   }
+
   @include media-query($on-palm) {
     min-height: 70px;
     .site-title {
@@ -120,11 +152,12 @@
       img {height: 30px;}
     }
     .site-search-box {
+      display: none;
       font-size: 14px;
       height: 30px;
       width: auto;
       left: $spacing-unit / 2;
-      right: $spacing-unit / 2;
+      right: $spacing-unit / 2 * 3;
       bottom: 20px;
       margin-left: 0;
       .indicator {
@@ -149,9 +182,101 @@
       display: none;
     }
 
+    input#search-open-checker {
+      &:checked ~ .site-search-box {
+        display: inherit;
+      }
+      &:checked ~ .site-search-open-btn {
+        display: none;
+      }
+      &:checked ~ .site-search-close-btn {
+        display: inherit;
+      }
+      &:checked ~ .site-menu {
+        display: none;
+      }
+    }
+    .site-search-open-btn {
+      display: inherit;
+      position: absolute;
+      top: 15px;
+      right: $spacing-unit / 3 * 4;
+      color: white;
+      font-size: 24px;
+    }
+    .site-search-close-btn {
+      position: absolute;
+      top: 15px;
+      right: $spacing-unit / 3;
+      color: white;
+      font-size: 24px;
+    }
+    .site-menu {
+      display: inherit;
+      position: absolute;
+      right: $spacing-unit / 3;
+      top: 15px;
+      input#menu-open-checker {
+        display: none;
+        &:checked ~ ul.menu {
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 1000;
+          display: inherit;
+          background-color: white;
+          width: 180px;
+          margin: 0;
+          li {
+            padding: 10px;
+            list-style: none;
+            line-height: 20px;
+            i.fa {
+              width: 20px;
+            }
+            a {
+              color: inherit;
+              padding: 10px;
+              margin: -10px;
+              display: block;
+              &:hover, &:visited {
+                color: inherit;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        &:checked ~ label.background {
+          display: inherit;
+          background-color: transparent;
+          background-color: rgba(0, 0, 0, 0.3);
+          position: fixed;
+          z-index: 900;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+        & ~ label.background {
+          display: none;
+        }
+        & ~ label.opener {
+          color: white;
+          font-size: 24px;
+        }
+      }
+      .menu {
+        display: none;
+      }
+    }
+
     &.site-header-thick {
       min-height: 110px;
+      .site-search-open-btn {
+        display: none;
+      }
       .site-search-box {
+        display: inherit;
         bottom: 15px;
       }
     }
