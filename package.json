@@ -1,0 +1,7 @@
+{
+    "name": "educast-help-pages",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "request": "~2.69.0"
+    }
+}

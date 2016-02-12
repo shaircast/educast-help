@@ -1,0 +1,16 @@
+branches:
+  only:
+  - master
+  - gh-pages
+language: node_js
+node_js:
+- '4.1'
+install:
+- npm install grunt-cli -g
+- npm install --save-dev
+script:
+- grunt purge-cache
+env:
+  global:
+    CLOUDFLARE_DOMAIN: educast.pro
+    secure: QWiELN+SeauUkxf5b4kBELQNAU/hGayfDhEpcPvtkV3VOuki85JfHqMvjlO+d1b7bawBxDLtPKN524TMySoKKNboSUc3assLf0vGAQnzyx8Pj9aMcW8wn20lsn2eiRjFWg9oJujeKAxEJty09e3Wl9W4JdYLI/+uatr5Es9uoJXUlqbnDw8UyudNsucWwwHKPjKANrzS4nhGa1z1z2yDwXinTSaWRnvKsKScMEhfBAYqnmGbZpBgknTj6pbJ1Gi+lBq5KF21qV1gu7kPKn3YAFthNGyCuZwwb7fG6sAKgjJAd53aIemoUjGgRHS0q7RdV1eC+yOq5x2oSdn5aeqNoFCmj3DxKXC/RJ7f+at8qkHsCdr5XY5oRQ3JivuGTNd+fJcGlOgsihl5JM2mHxhupoSybYTQlu3P9OfMlamtA6Cvy38vkmr5y/PrVElXBa/hCE9HkIRhci3gT9ZgcFk4I8n+OTEV78x+7PNecmXBo2wL84qE6yNBy9S/0roOxy7i67q39qU/fpJJY7PvuIqKQ/kIXkIlckimHA16kQX/TpuGDmD5Adh9iy2dc9xW6EW6NYuxQ7Z8qvwEpjJINk7nkSqU8OfG7je0CZRwF8H9jWS82ioS9S5y27hB8hqY0wnmG8yZrJRxBC5IUfp5/+WbGryFUMe3494cAdE4ReGbD8M=
