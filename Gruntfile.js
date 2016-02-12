@@ -341,7 +341,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy', [
-        'clean-build', 'gitconfig:dist-set', 'gitcommit:dist',
-        'gitconfig:dist-unset', 'gitpush:dist',
+        'clean-build', 'gitadd:dist', 'gitconfig:dist-set',
+        'gitcommit:dist', 'gitconfig:dist-unset', 'gitpush:dist',
     ]);
 };
