@@ -1,0 +1,22 @@
+{
+  "name": "educast-help",
+  "homepage": "https://help.educast.pro",
+  "authors": [
+    "TNTcrowd <devmaster@tntcrowd.com>"
+  ],
+  "description": "Educast Help",
+  "main": "",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "anchor-js": "^3.0.0"
+  }
+}
