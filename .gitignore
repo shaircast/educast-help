@@ -26,3 +26,6 @@ Temporary Items
 
 # Ignore Distribution Directory
 /dist
+
+# node project
+/node_modules

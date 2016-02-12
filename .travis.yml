@@ -1,14 +1,15 @@
-language: python
-python:
-  - "3.4"
+language: node_js
+node_js
+  - "4.1"
 
 install:
-  - pip install -r ./requirements.txt
+  - npm install grunt-cli -g
+  - npm install --save-dev
 
 script:
-  - invoke deploy
+  - grunt deploy
 
 env:
   global:
-    - GH_REF: "github.com/tntcrowd/educast-help.git"
-    - secure: "dvzuf8X1AITe5M4P3E7tNmvcNi22C0Kiyg1w5QS2tuIMHxPEEHF3m34NzBOYuA0pn/7MU27ZTIXIkyAup16LsLqEf8QxitXZgzdK+nPkOoxH06RaX4QHd4rePInQ4zQ4TpkrVg+OZLLXa6swoj8QTN+2GjedFsW5woMOU/95mCEmi5koD2spdAgwPubPyNKfb9nEKHUVxxg1UCboEoWoyX7jvFufHNHigAhPPivRvUuJevr6iTgVDP4fjnLxtAiYV0La4vQ5nmMgIQdmOK1I080Pfcyj97I3Vn+75JU2EpApeHPLKeqpnNg4U8YBEy5NsOIJ7b1zBSCDVlXMTK5GDXgC39jkoAdpys8bHptKuQOKW+eKmYeUfSToZEYvSiguNxYAterTpHmPKOCHJTZbn2KfGMV7PvzHQnC/KqY82vQ0M82gW70fkW/PyKZNN/QOS4WcoRs0QzHaR8dCbYfW7LebhWsxTpDvWCfW5ekVTyuZAjg/JwjZ+e3YSyR1/6sQXEey9c4H4ygKUlLDH6enesdpQLWJC01qXZVeBj9oDdKjudbKHIkin0+F1p1T7Z0o7u+T5zl81E/bxEZmbzvqpzw3W6+9cpHuiXeGHsD0uNLCWqN+RWy09yWnYzVfjQWEFbnI+7l1pgEW+gV5AaDstGfXYJWckCSURWB+P+Nml9g="
+    - GH_REF: "tntcrowd/educast-help"
+    - secure: "oDZxNAnpSNnqi2cK4LzDWXS2bc7DRO4HXrVWZWozg4qNGRNL7CICYKd12jdQOJ0ht5VmpTG9nRqCQQunYikAmUBuvD0CWQsBKWlcuRJS5EiIxPlejHgRpRhsVIojAE8GULT266Y9CPCLvWGrJiDiaEY2+wpCmuMVrt00x23cIKbuSHxFqtNgLhxun8h0RUI1ls/RdTDo5tTNBboiAc+p4uKmyu6DHtYVeKadCX3D3r4/IBxkr4X6pB4fOJzn/Ub2MZOSC/1Cz7bntEgImkfFApD75CAei1mD3ez5HA/6BbVbkFq2KiZbcCl2Q5rF54IKm+Vdxvq7Vzdo7EWJUo9Uf9a/VB0UE5IZVjhWdrJD0O6x0LXakDlQ5wpFsZSLvRvxHb8eet3104JYcjkTyKOiPffRrgoGMyjZtQfFiRT6ihkENqdVmatluyYN25255HIVpDFEyyAhH1Q9YPkSRo52D0z9mBHmUzFZeAYOx23tD+br5HjL0XETPJgQQM8T/rFqBCjVqNQI7pTM4p0k6IF/nPUUiP5l9yeukaC/r+ovAMkIuXmHN1brvgNbkvawxU0ODSaA5fpdgHd456UHd2tNpxLLwJ02ylc1QnZUWMOml0dDEb7ZhNLXUMDOlsfJhW9u/nmVmg8qve4+qUe+fLEVK2daclsDx7fk1O946XZevbA="
