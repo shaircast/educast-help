@@ -1,5 +1,3 @@
-var Q = require('Q');
-
 module.exports = function (grunt) {
     var makeJekyllName = (function () {
         var cache = {},
@@ -219,7 +217,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask(
         'convert', 'Convert posts to jekyll format', function () {
-            var gitDateWaits = [], done = this.async();
+            var gitDateWaits = [], done = this.async(),
+                Q = require('q');
+
             grunt.file.recurse('help', function (abs, r, s, f) {
                 gitDateWaits.push(Q.promise(function (resolve, rejct, notify) {
                     gitDate.fetchDate(abs, function (err, date) {
