@@ -86,7 +86,7 @@ module.exports = function (grunt) {
                     user: user, repo: repo, path: nfc_path
                 }, function (err, result) {
                     var date;
-                    if (result.length > 0) {
+                    if (!err && result.length > 0) {
                         date = new Date(result[0].commit.author.date);
                     } else {
                         date = new Date();
@@ -115,7 +115,8 @@ module.exports = function (grunt) {
         GH_USERNAME: process.env.GH_USERNAME,
         clean: {
             dist: ['dist'],
-            distPosts: ['dist/_posts/*']
+            'dist-posts': ['dist/_posts/*'],
+            'dist-search': ['dist/search/*']
         },
         gitclone: {
             dist: {
@@ -156,14 +157,14 @@ module.exports = function (grunt) {
             }
         },
         gitconfig: {
-            distSet: {
+            'dist-set': {
                 options: {
                     cwd: 'dist',
                     email: '<%= GH_EMAIL %>',
                     username: '<%= GH_USERNAME %>'
                 }
             },
-            distUnset: {
+            'dist-unset': {
                 options: {
                     cwd: 'dist'
                 }
@@ -217,8 +218,39 @@ module.exports = function (grunt) {
 
     grunt.registerTask(
         'convert', 'Convert posts to jekyll format', function () {
-            var gitDateWaits = [], done = this.async(),
-                Q = require('q');
+            var Q = require('q'), lunr = require('lunr'),
+                unicodeTrimmer = (function (lunr) {
+                    var ltrim_pattern = (
+                            /^[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]+/gi
+                    ), rtrim_pattern = (
+                            /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]+$/gi
+                    ), f = function (token) {
+                        return token.replace(ltrim_pattern, '')
+                            .replace(rtrim_pattern, '');
+                    };
+                    lunr.Pipeline.registerFunction(f, 'unicodeTrimmer');
+                    return f;
+                })(lunr),
+                gitDateWaits = [], done = this.async(),
+                getDocumentID = (function () {
+                    var i = 0;
+                    return function () {
+                        i += 1;
+                        return i;
+                    };
+                })(),
+                search_content = [],
+                search_index = lunr(function () {
+                    this.field('title', {boost: 10});
+                    this.field('body');
+
+                    this.pipeline.reset();
+                    this.pipeline.add(
+                        unicodeTrimmer,
+                        lunr.stopWordFilter,
+                        lunr.stemmer
+                    );
+                });
 
             grunt.file.recurse('help', function (abs, r, s, f) {
                 gitDateWaits.push(Q.promise(function (resolve, rejct, notify) {
@@ -260,18 +292,56 @@ module.exports = function (grunt) {
                     grunt.file.write(new_abs, new_content.normalize('NFC'), {
                         encoding: 'utf-8'
                     });
+
+                    content.split('\n#').forEach(function (content) {
+                        var split_by_newline = content.split('\n'),
+                            title = (
+                                split_by_newline.shift().replace(/#/g, '').trim()
+                            ),
+                            body = split_by_newline.join('\n').replace(
+                                    /\[(.*?)\]\((.*?)\)/g,
+                                function (str, name, url) {
+                                    // Remove URL
+                                    return "[" + name + "]";
+                                }
+                            ),
+                            doc = {
+                                id: getDocumentID(),
+                                title: title,
+                                body: body,
+                                url: replaceUrl('.', abs),
+                                fragment: title
+                            };
+                        search_content.push(doc);
+                        search_index.add(doc);
+                    });
                 });
+
+                // Write Search Index & Contents
+                var null_layout = '---\nlayout: null\n---\n';
+                grunt.log.write("Writing Search Index & Contents\n");
+                grunt.file.mkdir("dist/search");
+                grunt.file.write(
+                    "dist/search/index.json",
+                    null_layout + JSON.stringify(search_index.toJSON()));
+                grunt.file.write(
+                    "dist/search/content.json",
+                    null_layout + JSON.stringify(search_content));
                 done();
             });
         }
     );
 
     grunt.registerTask('build', [
-        'clean:dist', 'gitclone:dist', 'clean:distPosts', 'convert'
+        'clean:dist-posts', 'clean:dist-search', 'convert'
+    ]);
+
+    grunt.registerTask('clean-build', [
+        'clean:dist', 'gitclone:dist', 'build'
     ]);
 
     grunt.registerTask('deploy', [
-        'build', 'gitconfig:distSet', 'gitcommit:dist',
-        'gitconfig:distUnset', 'gitpush:dist',
+        'clean-build', 'gitconfig:dist-set', 'gitcommit:dist',
+        'gitconfig:dist-unset', 'gitpush:dist',
     ]);
 };
