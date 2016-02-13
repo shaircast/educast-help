@@ -116,7 +116,7 @@ module.exports = function (grunt) {
         clean: {
             dist: ['dist'],
             'dist-posts': ['dist/_posts/*'],
-            'dist-search': ['dist/search/*']
+            'dist-search': ['dist/search/*.json']
         },
         gitclone: {
             dist: {
