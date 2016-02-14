@@ -309,8 +309,9 @@ module.exports = function (grunt) {
                                 id: getDocumentID(),
                                 title: title,
                                 body: body,
-                                url: replaceUrl('.', abs),
-                                fragment: title
+                                url: replaceUrl('.', abs) + [
+                                    "#{{ '", title, "' | slugify }}"
+                                ].join('')
                             };
                         search_content.push(doc);
                         search_index.add(doc);
