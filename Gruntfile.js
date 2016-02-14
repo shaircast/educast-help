@@ -116,6 +116,7 @@ module.exports = function (grunt) {
         clean: {
             dist: ['dist'],
             'dist-posts': ['dist/_posts/*'],
+            'dist-data': ['dist/_data/*'],
             'dist-search': ['dist/search/*.json']
         },
         gitclone: {
@@ -219,6 +220,7 @@ module.exports = function (grunt) {
     grunt.registerTask(
         'convert', 'Convert posts to jekyll format', function () {
             var Q = require('q'), lunr = require('lunr'),
+                YAML = require('yamljs'), Path = require('path'),
                 unicodeTrimmer = (function (lunr) {
                     var ltrim_pattern = (
                             /^[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]+/gi
@@ -250,7 +252,8 @@ module.exports = function (grunt) {
                         lunr.stopWordFilter,
                         lunr.stemmer
                     );
-                });
+                }),
+                category_faq = {};
 
             grunt.file.recurse('help', function (abs, r, s, f) {
                 gitDateWaits.push(Q.promise(function (resolve, rejct, notify) {
@@ -262,6 +265,18 @@ module.exports = function (grunt) {
 
             Q.all(gitDateWaits).then(function () {
                 grunt.file.recurse('help', function (abs, root, sub, filename) {
+                    if (filename === 'faq.yml') {
+                        var faq_list = YAML.load(abs).map(function (item) {
+                            return {
+                                post: makeJekyllName(
+                                    Path.join(root, sub, item.post)
+                                ) + Path.parse(item.post).ext,
+                                header: item.header
+                            };
+                        });
+                        category_faq[sub] = faq_list;
+                    }
+
                     if (!filename.endsWith('.md')) {
                         return;
                     }
@@ -329,12 +344,19 @@ module.exports = function (grunt) {
                     "dist/search/content.json",
                     null_layout + JSON.stringify(search_content));
                 done();
+
+                // Write FAQ List
+                grunt.log.write("Writing FAQ List\n");
+                grunt.file.mkdir("dist/_data");
+                grunt.file.write(
+                    "dist/_data/faq.yml", YAML.stringify(category_faq, 2)
+                );
             });
         }
     );
 
     grunt.registerTask('build', [
-        'clean:dist-posts', 'clean:dist-search', 'convert'
+        'clean:dist-posts', 'clean:dist-data', 'clean:dist-search', 'convert'
     ]);
 
     grunt.registerTask('clean-build', [
