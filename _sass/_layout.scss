@@ -364,7 +364,15 @@
  * Site footer
  */
 .site-footer {
-    padding: $spacing-unit 0;
+  position: absolute;
+  bottom: 0;
+  padding: $spacing-unit 0;
+  width: 100%;
+  height: $footer-height-on-desktop;
+  @include media-query($on-palm) {
+    position: static;
+    height: auto;
+  }
 }
 
 .footer-heading {
@@ -433,7 +441,11 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit + $footer-height-on-desktop;
+  @include media-query($on-palm) {
+    padding-bottom: $spacing-unit;
+  }
 }
 
 .page-heading {
