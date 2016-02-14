@@ -42,7 +42,13 @@
                         contentURL = (
                             content.url + '#' + anchors.urlify(content.fragment)
                         ),
-                        contentHtml = '<article>' + contentURL + '</article>';
+                        contentHtml = [
+                            '<article class="post-content">',
+                            '<h4><a href="', contentURL, '">',
+                            content.fragment, '</a></h4>',
+                            '<p>', content.body, '</p>',
+                            '</article>'
+                        ].join('');
 
                     tempDiv.innerHTML = contentHtml;
                     return tempDiv.firstChild;
@@ -65,10 +71,12 @@
                     hideAll();
                     if (results.length === 0) {
                         domUtils.removeClass(emptySection, 'hide');
+                        emptySection.querySelector('.keyword').innerText = q;
                         return;
                     }
                     domUtils.removeClass(resultsSection, 'hide');
 
+                    resultsSection.querySelector('.keyword').innerText = q;
                     results.forEach(function (content) {
                         resultsSection.appendChild(resultTemplate(content));
                     });
@@ -81,6 +89,9 @@
     if (q.length == 0) {
         searchContentView.noKeyword();
         return;
+    } else {
+        var searchInput = document.querySelector('input[name="q"]');
+        searchInput.value = q;
     }
 
     (function (onError, resolve) {
