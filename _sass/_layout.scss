@@ -374,6 +374,9 @@
     position: static;
     height: auto;
   }
+  &.site-footer-transparent {
+    background-color: transparent;
+  }
 }
 
 .footer-heading {

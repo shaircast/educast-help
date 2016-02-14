@@ -3,11 +3,11 @@
   {% include head.html %}
   <body>
     <div class="body-wrap">
-      {% include header.html %}
+      {% include header.html thick=page.thick_header%}
       <div class="page-content">
         {{ content }}
       </div>
-      {% include footer.html %}
+      {% include footer.html transparent=page.transparent_footer %}
     </div>
   </body>
 </html>
