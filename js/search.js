@@ -39,13 +39,10 @@
                 },
                 resultTemplate = function (content) {
                     var tempDiv = document.createElement('div'),
-                        contentURL = (
-                            content.url + '#' + anchors.urlify(content.fragment)
-                        ),
                         contentHtml = [
                             '<article class="post-content">',
-                            '<h4><a href="', contentURL, '">',
-                            content.fragment, '</a></h4>',
+                            '<h4><a href="', content.url, '">',
+                            content.title, '</a></h4>',
                             '<p>', content.body, '</p>',
                             '</article>'
                         ].join('');
