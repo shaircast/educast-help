@@ -60,6 +60,8 @@
       margin-left: -$search-maxwidth / 2;
       height: 50px;
       bottom: ($header-height - 50px) / 2;
+      border-radius: 5px;
+      background-color: white;
       @include media-query(
         $title-width * 2 + $spacing-unit * 2 + $search-maxwidth
       ) {
@@ -106,6 +108,7 @@
       }
 
       .button {
+        border: none;
         position: absolute;
         line-height: 50px;
         text-align: center;
@@ -200,21 +203,23 @@
       display: inherit;
       position: absolute;
       top: 15px;
-      right: $spacing-unit / 3 * 4;
+      right: $spacing-unit / 2 * 3 + 5px;
       color: white;
       font-size: 24px;
+      cursor: pointer;
     }
     .site-search-close-btn {
       position: absolute;
       top: 15px;
-      right: $spacing-unit / 3;
+      right: $spacing-unit / 2;
       color: white;
       font-size: 24px;
+      cursor: pointer;
     }
     .site-menu {
       display: inherit;
       position: absolute;
-      right: $spacing-unit / 3;
+      right: $spacing-unit / 2;
       top: 15px;
       input#menu-open-checker {
         display: none;
@@ -261,6 +266,7 @@
           display: none;
         }
         & ~ label.opener {
+          cursor: pointer;
           color: white;
           font-size: 24px;
         }
@@ -446,7 +452,7 @@
 .post-meta {
   text-align: right;
   font-size: $small-font-size;
-    color: $grey-color;
+  color: $grey-color;
 }
 
 .post-link {

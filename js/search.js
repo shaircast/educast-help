@@ -17,7 +17,8 @@
             window.location.href.replace(/.*\?/g, '')
         );
         return result.length < 2 ?
-            null : window.decodeURIComponent(result[1]).trim();
+            null : window.decodeURIComponent(result[1])
+            .trim().replace(/\++/g, ' ');
     })(window),
         searchContentView = (function (document, domUtils, anchors) {
             var resultsSection =
