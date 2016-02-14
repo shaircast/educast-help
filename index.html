@@ -2,19 +2,34 @@
 layout: default-thick-header
 ---
 <div class="home">
-
   <section class="home-faq">
     <div class="wrapper">
       <h2>자주 묻는 질문</h2>
       <div class="home-faq-wrapper">
         <div class="home-faq-item">
           <ul class="list-style">
-            <li><a href="">학생용</a></li>
+            {% for faq in site.data.faq.student %}
+            {% for post in site.categories.student %}
+            {% capture path %}_posts/{{ faq.post }}{% endcapture %}
+            {% if post.path == path %}
+            <li><a href="{{ post.url }}#{{ faq.header | slugify }}">
+              {{ faq.header }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
           </ul>
         </div>
         <div class="home-faq-item">
           <ul class="list-style">
-            <li><a href="">학생용</a></li>
+            {% for faq in site.data.faq.teacher %}
+            {% for post in site.categories.teacher %}
+            {% capture path %}_posts/{{ faq.post }}{% endcapture %}
+            {% if post.path == path %}
+            <li><a href="{{ post.url }}#{{ faq.header | slugify }}">
+              {{ faq.header }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -39,6 +54,3 @@ layout: default-thick-header
     </div>
   </section>
 </div>
-<script>
- makeHeaderLink(".home-faq-item li a");
-</script>
