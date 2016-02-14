@@ -14,6 +14,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://help.educast.pro" # the base hostname & protocol for your site
+facebook_username: educast.pro
 twitter_username: edcuast_pro
 github_username:  tntcrowd
 
