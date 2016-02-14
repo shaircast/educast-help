@@ -5,6 +5,11 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <script type="text/javascript">
+  if (location.protocol.indexOf('https') < 0 && location.host === 'help.educast.pro') {
+    location.href = 'https:' + location.href.substring(location.protocol.length);
+  }
+  </script>
 
   <script type="text/javascript" src="{{ "/components/anchor-js/anchor.min.js" | prepend: site.baseurl }}"></script>
   <script type="text/javascript" src="{{ "/js/utils.js" | prepend: site.baseurl }}"></script>
