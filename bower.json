@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "anchor-js": "^3.0.0"
+    "anchor-js": "~3.0.0",
+    "lunr.js": "~0.6.0"
   }
 }
