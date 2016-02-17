@@ -9,5 +9,16 @@
       </div>
       {% include footer.html transparent=page.transparent_footer %}
     </div>
+    <script>
+    (function () {
+      var searchBtn = document.querySelector('.site-search-open-btn'),
+          searchInput = document.querySelector('input[name="q"]');
+      searchBtn.onclick = function () {
+        window.setTimeout(function () {
+          searchInput.focus();
+        }, 0);
+      };
+    })();
+    </script>
   </body>
 </html>
