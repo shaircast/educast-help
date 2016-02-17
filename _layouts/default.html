@@ -18,6 +18,32 @@
           searchInput.focus();
         }, 0);
       };
+
+      var highlightHeader = (function () {
+        var former;
+        return function (hash) {
+          var header;
+          try {
+            var header = document.querySelector(hash);
+            window.domUtils.addClass(header, 'hl-header');
+            var headerLink = header.querySelector('a');
+            header.innerHTML = '<span>' + header.innerText + '</span>';
+            header.appendChild(headerLink);
+          } catch (e) {
+          }
+          if (former) {
+            window.domUtils.removeClass(former, 'hl-header');
+            var formerLink = former.querySelector('a');
+            former.innerText = former.querySelector('span').innerText;
+            former.appendChild(formerLink);
+          }
+          former = header;
+        };
+      })();
+      window.domUtils.addEventListener(window, 'hashchange', function () {
+        highlightHeader(location.hash);
+      });
+      highlightHeader(location.hash);
     })();
     </script>
   </body>
