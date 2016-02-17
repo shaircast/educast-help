@@ -22,7 +22,7 @@ layout: default
       <div class="category-menu">
         <ul>
           {% for post in category_pages %}
-          <li class="active"><a href="#{{ post.title | slugify }}">{{ post.title }}</a></li>
+          <li><a href="#{{ post.title | slugify }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
