@@ -33,10 +33,10 @@ layout: default
           <h2 class="post-summary-title">{{ post.title }}</h2>
         </header>
         <div class="post-summary-content">
-          {% assign ps_header_parts=post.content | split: "</p>" %}
+          {% assign ps_header_parts=post.content | split: "<h4>" %}
           <ul class="list-style">
             {% for ps_header_part in ps_header_parts %}
-            {% assign possible_header = ps_header_part | split: "<p>" | first | remove: "<h4>" | remove: "</h4>" | strip %}
+            {% assign possible_header = ps_header_part | split: "</h4>" | first | strip %}
             {% assign possible_header_size = possible_header | size %}
             {% if possible_header_size > 0 %}
             <li>
