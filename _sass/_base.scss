@@ -68,7 +68,11 @@ figcaption {
     font-size: $small-font-size;
 }
 
-
+td, th {
+    border: solid 1px;
+    min-width: 50px;
+    text-align: center;
+}
 
 /**
  * Lists
