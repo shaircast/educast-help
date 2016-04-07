@@ -12,7 +12,9 @@ Android에서는 [에듀캐스트 앱](https://play.google.com/store/apps/detail
 |            브라우저            |         운영체제         |            디바이스          |
 |-------------------------------|--------------------------|------------------------------|
 | <span class="browser"></span> | <span class="os"></span> | <span class="device"></span> |
+
 <br/>
+
 ---
 
 #### 재생이 안돼요.
