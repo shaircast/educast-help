@@ -25,6 +25,7 @@ kramdown:
   input: GFM
   # Disable auto-generated ID's for headings
   auto_ids: false
+  hard_wrap: false
 
 exclude:
   - Gemfile

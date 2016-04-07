@@ -11,6 +11,7 @@
     </div>
     <script>
     (function () {
+      // Search Button
       var searchBtn = document.querySelector('.site-search-open-btn'),
           searchInput = document.querySelector('input[name="q"]');
       searchBtn.onclick = function () {
@@ -19,6 +20,7 @@
         }, 0);
       };
 
+      // Highlight Headers
       var highlightHeader = (function () {
         var former;
         return function (hash) {
@@ -44,6 +46,25 @@
         highlightHeader(location.hash);
       });
       highlightHeader(location.hash);
+
+      // User Agent Viewer
+      var userEnv = document.querySelector("#user-env");
+      if (!!userEnv === true) {
+        var uaResult = new UAParser().getResult();
+        if (!!uaResult.browser === true) {
+          var browser = userEnv.querySelector(".browser");
+          browser.innerHTML = uaResult.browser.name + "<br>" + uaResult.browser.major;
+        }
+        if (!!uaResult.os === true) {
+          var os = userEnv.querySelector(".os");
+          os.innerHTML = uaResult.os.name + "<br>" + uaResult.os.version;
+        }
+        if (!!uaResult.device === true && !!uaResult.device.model === true) {
+          var device = userEnv.querySelector(".device");
+          device.innerHTML =  uaResult.device.vendor + "<br>" + uaResult.device.model;
+        }
+      }
+
     })();
     </script>
   </body>

@@ -74,6 +74,11 @@ td, th {
     text-align: center;
 }
 
+table {
+  width: 100%;
+  margin-bottom: $spacing-unit;
+}
+
 /**
  * Lists
  */

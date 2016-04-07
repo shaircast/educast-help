@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "anchor-js": "~3.0.0",
-    "lunr.js": "~0.6.0"
+    "lunr.js": "~0.6.0",
+    "ua-parser-js": "latest"
   }
 }
