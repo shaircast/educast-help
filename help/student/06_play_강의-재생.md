@@ -6,7 +6,7 @@ Android에서는 [에듀캐스트 앱](https://play.google.com/store/apps/detail
 그리고 iOS에서는 기본 Safari 브라우저를 사용하시면 쾌적하게 강의를 재생하실 수 있습니다.
 
 고객님의 현재 브라우저 및 운영체제는 아래와 같습니다.
-<div id="environment-section"></div>
+<p id="environment-section"></p>
 ---
 
 #### 재생이 안돼요.
