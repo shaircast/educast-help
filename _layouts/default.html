@@ -59,9 +59,12 @@
           var os = userEnv.querySelector(".os");
           os.innerHTML = uaResult.os.name + "<br>" + uaResult.os.version;
         }
+
+        var device = userEnv.querySelector(".device");
         if (!!uaResult.device === true && !!uaResult.device.model === true) {
-          var device = userEnv.querySelector(".device");
-          device.innerHTML =  uaResult.device.vendor + "<br>" + uaResult.device.model;
+          device.innerHTML = uaResult.device.vendor + "<br>" + uaResult.device.model;
+        } else {
+          device.innerHTML = "(모바일 전용)";
         }
       }
 
