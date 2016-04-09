@@ -44,6 +44,9 @@ defaults:
       layout: "post"
       permalink: /:categories/:slug/
 
+
+google_analytics: "UA-35838785-11"
+
 category_name_map:
   student: "수강생"
   teacher: "선생님"
