@@ -15,7 +15,7 @@ description: #> # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://help.educast.pro" # the base hostname & protocol for your site
 facebook_username: educast.pro
-twitter_username: edcuast_pro
+twitter_username: educast_pro
 github_username:  tntcrowd
 
 # Build settings
