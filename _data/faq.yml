@@ -4,5 +4,5 @@ student:
     - {post: 2016-04-07-play.md, header: '강의를 배속으로 재생할 수 있나요?'}
 teacher:
     - {post: 2016-06-27-beteacher.md, header: '선생님 등록 시 필요한 정보는 무엇인가요?'}
-    - {post: 2016-04-05-createcourse.md, header: '강좌를 개설하고 싶습니다. 어떻게 해야 하나요?'}
+    - {post: 2016-07-13-createcourse.md, header: '강좌를 개설하고 싶습니다. 어떻게 해야 하나요?'}
     - {post: 2016-04-05-paycheck.md, header: '수익 분배는 어떻게 이루어지나요?'}
