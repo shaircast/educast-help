@@ -5,7 +5,7 @@
 @mixin common-header($header-height, $header-thick-height,
   $title-width, $link-width, $search-maxwidth) {
 
-    background-color: #009BBE;
+    background-color: $brand-color;
     min-height: $header-height;
     position: relative;
 
