@@ -117,7 +117,7 @@
         right: 0;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
-        background-color: #007f9b;
+        background-color: $brand-light-color;
         color: white;
       }
     }
@@ -525,6 +525,27 @@
     }
 }
 
+.back-to-the-top:hover {
+  color: #fff !important;
+  background-color: $brand-accent-color;
+  text-decoration: none;
+}
+
+.back-to-the-top {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	width: 3.2rem;
+	height: 3.2rem;
+	line-height: 3.2rem;
+	font-size: 1.4rem;
+	color: #fff !important;
+	background-color: rgba(255,137,87,0.6);
+	text-decoration: none;
+	border-radius: 3.2rem;
+	text-align: center;
+	cursor: pointer;
+}
 
 .breadcrumb {
   max-width: $breadcrumb-max-width;
