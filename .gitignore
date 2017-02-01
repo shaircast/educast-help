@@ -29,3 +29,9 @@ Temporary Items
 
 # node project
 /node_modules
+
+# sass cache
+.sass-cache
+
+# build
+_site
