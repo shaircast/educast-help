@@ -24,7 +24,20 @@ layout: default
           {{ page.date | date: "%Y년 %m월 %d일" }}
         </time>
     </header>
-
+    <div class="post-summary-content" style="margin-bottom:3rem;">
+      {% assign ps_header_parts=content | split: "<h4>" %}
+      <ul class="list-style">
+        {% for ps_header_part in ps_header_parts %}
+        {% assign possible_header = ps_header_part | split: "</h4>" | first | strip %}
+        {% assign possible_header_size = possible_header | size %}
+        {% if possible_header_size > 0 %}
+        <li>
+          <a href="#{{ possible_header | slugify }}">{{ possible_header }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
     <div class="post-content" itemprop="articleBody">
       {{ content }}
     </div>
