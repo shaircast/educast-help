@@ -1,6 +1,6 @@
 student:
     - {post: 2017-04-28-payment.md, header: '강의를 결제하고 싶은데 어떤 방법이 가능한가요?'}
-    - {post: 2017-04-28-policy.md, header: 'EPIC 정책이 무엇인가요?'}
+    - {post: 2017-05-13-policy.md, header: 'EPIC 정책이 무엇인가요?'}
     - {post: 2017-04-28-play.md, header: '강의를 배속으로 재생할 수 있나요?'}
 teacher:
     - {post: 2016-06-27-beteacher.md, header: '선생님 등록 시 필요한 정보는 무엇인가요?'}
