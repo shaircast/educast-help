@@ -39,7 +39,7 @@ EPIC은 Eighty Percent Infinite Course-take 의 약자로 ~~끼워맞춰서 죄�
 일부 강좌의 경우 선생님의 서명이 들어간 수료증을 발급받으실 수 있습니다.
 그 외에는 에듀캐스트의 증명이 들어간 수료증을 발급해드립니다.
 수료증 발급을 서비스 내에 구축하기 위해서 노력하고 있으며,
-그 전까지는 [1:1 문의](https://educast.pro/support/qna/create/)를 통해서 요청해주시면 빠르게 발급해드리도록 하겠습니다.
+그 전까지는 [1:1 문의](https://educast.pro/support/inquiry/create/)를 통해서 요청해주시면 빠르게 발급해드리도록 하겠습니다.
 
 ---
 
