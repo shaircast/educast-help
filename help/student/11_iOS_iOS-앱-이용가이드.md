@@ -1,3 +1,3 @@
-#### 베타 테스트
-에듀캐스트의 iOS 앱은 현재 베타테스트중입니다.
-[링크](https://sites.google.com/view/educast-ios-beta-guide)에서 베타테스트에 대해서 더욱 자세히 알아보세요. iOS 정식 배포 후에도 베타테스트는 계속 진행될 예정입니다. 베타테스트에 참여하시면, iOS앱이 개발중인 기능들을 제일 먼저 사용하실 수 있습니다.
+#### iOS 앱(2.0) 출시
+에듀캐스트의 iOS 앱이 출시 되었습니다.
+애플 앱스토어에서 '에듀캐스트'를 검색하시거나 [링크](https://itunes.apple.com/kr/app/educast-learning-platform/id1098479953)를 클릭하여 앱을 다운로드 받을 수 있습니다.
