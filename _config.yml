@@ -13,7 +13,7 @@ description: #> # this means to ignore newlines until "baseurl:"
   궁금한 사항 중 Help Center에 없거나 설명이 부족하다고 생각하시면 문의해주시기 바랍니다.
   최대한 빠른 시일 내에 반영하도록 하겠습니다.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://help.educast.pro" # the base hostname & protocol for your site
+url: "https://help.educast.com" # the base hostname & protocol for your site
 facebook_username: educast.pro
 twitter_username: educast_pro
 github_username:  tntcrowd
