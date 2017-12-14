@@ -11,13 +11,6 @@
   <meta property="og:image" content="{{ site.url }}/img/educast-logo-opengraph.png">
   <meta property="og:description" name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-
-  <script type="text/javascript">
-  if (location.protocol.indexOf('https') < 0 && location.host === 'help.educast.pro') {
-    location.href = 'https:' + location.href.substring(location.protocol.length);
-  }
-  </script>
-
   <script type="text/javascript" src="{{ "/components/anchor-js/anchor.min.js" | prepend: site.baseurl }}"></script>
   <script type="text/javascript" src="{{ "/js/utils.js" | prepend: site.baseurl }}"></script>
   <script type="text/javascript" src="{{ "/components/ua-parser-js/dist/ua-parser.min.js" | prepend: site.baseurl }}"></script>
@@ -26,6 +19,6 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-  
+
   {% include google-analytics.html %}
 </head>
