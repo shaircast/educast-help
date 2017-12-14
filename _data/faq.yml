@@ -1,7 +1,7 @@
 student:
-    - {post: 2017-09-04-play.md, header: '강의를 다운로드할 수 있나요? (앱)'}
-    - {post: 2017-10-27-policy.md, header: 'EPIC 정책이 무엇인가요?'}
-    - {post: 2017-09-04-play.md, header: '강의를 배속으로 재생할 수 있나요?'}
+    - {post: 2017-12-14-play.md, header: '강의를 다운로드할 수 있나요? (앱)'}
+    - {post: 2017-12-14-policy.md, header: 'EPIC 정책이 무엇인가요?'}
+    - {post: 2017-12-14-play.md, header: '강의를 배속으로 재생할 수 있나요?'}
 teacher:
     - {post: 2017-07-12-beteacher.md, header: '선생님 등록 시 필요한 정보는 무엇인가요?'}
     - {post: 2017-08-03-createcourse.md, header: '강좌를 개설하고 싶습니다. 어떻게 해야 하나요?'}
