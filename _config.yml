@@ -14,8 +14,8 @@ description: #> # this means to ignore newlines until "baseurl:"
   최대한 빠른 시일 내에 반영하도록 하겠습니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://help.educast.com" # the base hostname & protocol for your site
-facebook_username: educast.pro
-twitter_username: educast_pro
+facebook_username: educast.official
+twitter_username: educast_com
 github_username:  tntcrowd
 
 # Build settings
