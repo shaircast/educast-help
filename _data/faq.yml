@@ -1,6 +1,6 @@
 student:
     - {post: 2018-01-03-play.md, header: '강의를 다운로드할 수 있나요? (앱)'}
-    - {post: 2017-12-29-policy.md, header: 'EPIC 정책이 무엇인가요?'}
+    - {post: 2018-03-09-policy.md, header: 'EPIC 정책이 무엇인가요?'}
     - {post: 2018-01-03-play.md, header: '강의를 배속으로 재생할 수 있나요?'}
 teacher:
     - {post: 2017-07-12-beteacher.md, header: '선생님 등록 시 필요한 정보는 무엇인가요?'}
